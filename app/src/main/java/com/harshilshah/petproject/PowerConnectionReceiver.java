@@ -9,6 +9,7 @@ import android.content.Intent;
  * Class to receive Power Plugged, unplugged and Battery low actions.
  */
 public class PowerConnectionReceiver extends BroadcastReceiver {
+
     BatteryStatus batteryStatus;
 
     /**

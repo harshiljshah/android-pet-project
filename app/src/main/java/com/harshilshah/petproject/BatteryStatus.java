@@ -10,6 +10,7 @@ import android.os.BatteryManager;
  *  Class used to manage power status and battery low counts of device.
  */
 class BatteryStatus {
+
     private Context context;
     private MainActivity mainActivityInstance;
 
