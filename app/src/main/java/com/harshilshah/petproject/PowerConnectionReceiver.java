@@ -22,10 +22,13 @@ public class PowerConnectionReceiver extends BroadcastReceiver {
         batteryStatus = new BatteryStatus(context);
         String action = intent.getAction();
 
+        // Handling battery low action
         if(action.equals(Intent.ACTION_BATTERY_LOW))
             batteryStatus.actionBatteryLow();
 
-        else if(action.equals(Intent.ACTION_POWER_CONNECTED) || action.equals(Intent.ACTION_POWER_DISCONNECTED))
+        // Handling Power connected and disconnected action.
+        else if(action.equals(Intent.ACTION_POWER_CONNECTED)
+                || action.equals(Intent.ACTION_POWER_DISCONNECTED))
             batteryStatus.actionPowerStatusChanged(action);
     }
 }

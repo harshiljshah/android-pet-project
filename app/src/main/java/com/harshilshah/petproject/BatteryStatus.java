@@ -19,11 +19,13 @@ class BatteryStatus {
     }
 
     /**
-     * Handling battery low action and update low counts
+     * Handles battery low action and update low battery counts.
      */
     void actionBatteryLow(){
         int count = this.readCount();
         this.writeCount(++count);
+
+        // Update counts if Main activity is active.
         if(mainActivityInstance != null){
             mainActivityInstance.updateBatteryLowCounts(count);
         }
@@ -35,6 +37,8 @@ class BatteryStatus {
      */
     void actionPowerStatusChanged(final String action){
         boolean isCharging;
+
+        // Update charging status if Main activity is active.
         if(mainActivityInstance != null) {
             isCharging = action.equals(Intent.ACTION_POWER_CONNECTED);
             mainActivityInstance.updateChargingStatus(isCharging);
@@ -65,15 +69,18 @@ class BatteryStatus {
     }
 
     /**
-     * Check current charging status of the device.
+     * Check current charging status of the device. This function is used when App instance created
+     * for the first time
      * @return  status of charging in boolean.
      */
     boolean isCharging(){
         IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatusIntentReceiver = context.registerReceiver(null, iFilter);
 
-        int status = batteryStatusIntentReceiver.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+        int status = batteryStatusIntentReceiver.getIntExtra(BatteryManager.EXTRA_STATUS
+                ,-1);
 
-        return status == BatteryManager.BATTERY_PLUGGED_AC || status == BatteryManager.BATTERY_PLUGGED_USB;
+        return status == BatteryManager.BATTERY_PLUGGED_AC
+                || status == BatteryManager.BATTERY_PLUGGED_USB;
     }
 }
