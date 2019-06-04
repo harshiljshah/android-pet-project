@@ -9,34 +9,34 @@ import lombok.NonNull;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static MainActivity instance;
+    private static MainActivity mainActivityInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        instance = this;
+        mainActivityInstance = this;
 
-        BatteryStatus batteryStatus = new BatteryStatus(getApplicationContext());
-        updateBatteryLowCounts(batteryStatus.readCount());
-        updateChargingStatus(batteryStatus.isCharging());
+        BatteryStatusController batteryStatusController = new BatteryStatusController(getApplicationContext());
+        updateBatteryLowCounts(batteryStatusController.readCount());
+        updateChargingStatus(batteryStatusController.isCharging());
 
     }
 
     /**
-     * Get instance of the activity.
-     * @return returns instance of the activity
+     * Get mainActivityInstance of the activity.
+     * @return returns mainActivityInstance of the activity
      */
-    public static MainActivity getInstance(){
-        return instance;
+    static MainActivity getMainActivityInstance(){
+        return mainActivityInstance;
     }
 
     /**
      * Function to uddate text views representing charging status.
      * @param isCharging    boolean variable to represent charging or not charging.
      */
-    public void updateChargingStatus(final boolean isCharging){
+    void updateChargingStatus(final boolean isCharging){
 
         TextView chargingTextView = findViewById(R.id.charging_text_view);
         TextView notChargingTextView = findViewById(R.id.not_charging_text_view);
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
      * Function to update text view containing low counts information.
      * @param count count to show in text view.
      */
-    public void updateBatteryLowCounts(final int count){
+    void updateBatteryLowCounts(final int count){
         TextView BatteryLowCountsTextView = findViewById(R.id.low_counts);
         BatteryLowCountsTextView.setText(String.valueOf(count));
     }
