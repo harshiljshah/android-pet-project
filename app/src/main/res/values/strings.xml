@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Pet Project</string>
+    <string name="battery_low_count_key">battery_low_count </string>
+    <string name="default_shared_preference_name">default_shared_preference</string>
+    <string name="power_status">Power Status</string>
+    <string name="charging_str">Charging</string>
+    <string name="not_charging_str">Not Charging</string>
+    <string name="battery_low_count_label">Number of times power status become low</string>
+</resources>
