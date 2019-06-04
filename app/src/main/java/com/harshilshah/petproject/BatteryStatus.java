@@ -1,4 +1,4 @@
-package com.example.petproject;
+package com.harshilshah.petproject;
 
 import android.content.Context;
 import android.content.Intent;
