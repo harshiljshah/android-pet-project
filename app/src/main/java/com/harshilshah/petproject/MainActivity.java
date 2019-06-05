@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.TextView;
 import lombok.NonNull;
 
@@ -63,10 +64,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setTextView(@NonNull final TextView textView)
     {
-
-        textView.setTextColor(getColor(R.color.green));
-        textView.setTypeface(Typeface.DEFAULT_BOLD);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f);
+        textView.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -75,9 +73,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void resetTextView(@NonNull final TextView textView)
     {
-        textView.setTextColor(getColor(R.color.red));
-        textView.setTypeface(Typeface.DEFAULT);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f);
+        textView.setVisibility(View.GONE);
     }
 
     /**

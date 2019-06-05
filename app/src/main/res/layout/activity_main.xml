@@ -26,6 +26,8 @@
             android:padding="10dp"
             android:textSize="20sp"
             android:text="@string/charging_str"
+            android:textStyle="bold"
+            android:textColor="@color/green"
             />
 
         <TextView
@@ -36,6 +38,8 @@
             android:padding="10dp"
             android:textSize="20sp"
             android:text="@string/not_charging_str"
+            android:textStyle="bold"
+            android:textColor="@color/green"
             />
 
         <GridLayout
