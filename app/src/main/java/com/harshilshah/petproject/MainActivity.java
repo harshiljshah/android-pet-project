@@ -1,9 +1,7 @@
 package com.harshilshah.petproject;
 
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 import lombok.NonNull;
