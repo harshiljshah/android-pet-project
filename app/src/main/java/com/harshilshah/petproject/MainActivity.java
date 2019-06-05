@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         mainActivityInstance = this;
 
         BatteryStatusController batteryStatusController = new BatteryStatusController(getApplicationContext());
-        updateBatteryLowCounts(batteryStatusController.readCount());
+        updateBatteryLowCounts(batteryStatusController.readBatteryLowCount());
         updateChargingStatus(batteryStatusController.isCharging());
 
     }

@@ -23,8 +23,8 @@ class BatteryStatusController {
      * Handles battery low action and update low battery counts.
      */
     void actionBatteryLow(){
-        int count = this.readCount();
-        this.writeCount(++count);
+        int count = this.readBatteryLowCount();
+        this.writeBatteryLowCount(++count);
 
         // Update counts if Main activity is active.
         if(mainActivityInstance != null){
@@ -50,7 +50,7 @@ class BatteryStatusController {
      * Read battery low count from shared preference storage.
      * @return int count
      */
-    int readCount() {
+    int readBatteryLowCount() {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 context.getString(R.string.default_shared_preference_name)
                 , Context.MODE_PRIVATE);
@@ -61,7 +61,7 @@ class BatteryStatusController {
      * Store low battery counts in share preference.
      * @param val   value to store.
      */
-    private void writeCount(final int val) {
+    private void writeBatteryLowCount(final int val) {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 context.getString(R.string.default_shared_preference_name), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
